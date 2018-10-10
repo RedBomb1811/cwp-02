@@ -1,0 +1,17 @@
+[
+  {
+    "question": "London is the capital of Great Britain?",
+    "goodAns": "True",
+    "badAns": "False"
+  },
+  {
+    "question": "2+2*2",
+    "goodAns": "6",
+    "badAns": "8"
+  },
+  {
+    "question": "2+7",
+    "goodAns": "9",
+    "badAns": "6"
+  }
+]

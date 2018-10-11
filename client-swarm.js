@@ -1,8 +1,12 @@
-const Worker = require('worker_threads');
-const path = require('path');
-
 let N = process.argv[2];
-
-for (var i = 1; i <= N ; i++) {
-  const w = new Worker(path.join(__dirname, 'client.js'));
+const childProcess = require('child_process').exec;
+for (let i = 0; i < N; i++) {
+    childProcess('node client.js', (err, sout, serr) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log(`Client № ` + i);
+        console.log(sout);
+    });
 }

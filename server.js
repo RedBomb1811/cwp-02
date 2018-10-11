@@ -14,7 +14,7 @@ const server = net.createServer((client) => {
         dataHandler(data, client, logger)
     });
 
-    client.on('end', () => logger.write('Client ' + client.id + ' disconnected'));
+    client.on('end', () => logger.write('Client ' + client.id + ' disconnected\n'));
 });
 
 server.listen(port, () => {
@@ -27,12 +27,12 @@ function dataHandler(data, client, logger) {
         right = 0;
     }
     else {
-        logger.write('Question: ' + data);
+        logger.write('\nQuestion: ' + data + '\n');
         let answer = Math.floor(Math.random() * 2);
         if (answer === 1)
             right++;
-        logger.write('\nAnswer: ' + answer + '\n');
+        logger.write('Answer: ' + answer + '\n');
         logger.write('Statistic: ' + right + ' right answer\n')
-        client.write(answer);
+        client.write(answer.toString());
     }
 }
